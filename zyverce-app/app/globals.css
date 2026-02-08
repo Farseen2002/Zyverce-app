@@ -1,0 +1,97 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Dark Theme Default (OLED Inspired) */
+    --background: 0 0% 1.2%;
+    /* #030303 - OLED Black */
+    --foreground: 0 0% 100%;
+    /* #ffffff - White Text */
+
+    --card: 0 0% 3%;
+    --card-foreground: 0 0% 100%;
+
+    --popover: 0 0% 3%;
+    --popover-foreground: 0 0% 100%;
+
+    --primary: 263.4 70% 50.4%;
+    /* Indigo/Purple base */
+    --primary-foreground: 210 40% 98%;
+
+    --secondary: 42 56% 93%;
+    /* #FAF3E1 - Luxury Cream Accent */
+    --secondary-foreground: 0 0% 1.2%;
+
+    --muted: 215 16% 47%;
+    /* #a1a1aa - Muted Gray */
+    --muted-foreground: 215 16% 65%;
+
+    --accent: 210 100% 92%;
+    /* Neon Blue intent */
+    --accent-foreground: 222.2 47.4% 11.2%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 0 0% 20%;
+    --input: 0 0% 20%;
+    --ring: 263.4 70% 50.4%;
+
+    --radius: 0.75rem;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground selection:bg-purple-500/30 selection:text-white;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-bold tracking-tight;
+  }
+}
+
+@layer components {
+
+  /* Liquid Glass Navigation */
+  .liquid-nav {
+    @apply bg-[#030303]/70 backdrop-blur-xl border-b border-white/5;
+  }
+
+  /* Aurora Background Effect */
+  .aurora-bg {
+    background-color: #030303;
+    background-image:
+      radial-gradient(at 0% 0%, rgba(99, 102, 241, 0.15) 0px, transparent 50%),
+      radial-gradient(at 100% 0%, rgba(168, 85, 247, 0.15) 0px, transparent 50%),
+      radial-gradient(at 100% 100%, rgba(6, 182, 212, 0.1) 0px, transparent 50%);
+    background-attachment: fixed;
+  }
+
+  /* Buttons */
+  .btn-primary {
+    @apply inline-flex items-center justify-center rounded-full bg-gradient-to-r from-indigo-500 to-purple-600 px-8 py-4 text-base font-semibold text-white shadow-[0_0_15px_rgba(99, 102, 241, 0.5)] transition-all duration-300 hover:scale-105 hover:shadow-[0_0_25px_rgba(168, 85, 247, 0.6)];
+  }
+
+  /* Cards */
+  .glass-card {
+    @apply bg-white/5 backdrop-blur-md border border-white/10 rounded-2xl shadow-lg transition-all duration-300 hover:-translate-y-2 hover:bg-white/10 hover:shadow-[0_10px_40px_-10px_rgba(135, 195, 255, 0.2)];
+  }
+}
+
+@layer utilities {
+  .text-glow {
+    text-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+  }
+}
