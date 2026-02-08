@@ -4,40 +4,40 @@
 
 @layer base {
   :root {
-    /* Dark Theme Default (OLED Inspired) */
-    --background: 0 0% 1.2%;
-    /* #030303 - OLED Black */
-    --foreground: 0 0% 100%;
-    /* #ffffff - White Text */
+    /* Purple/Navy Theme (Based on Reference Image) */
+    --background: 250 45% 95%;
+    /* Light grayish-purple for main sections */
+    --foreground: 250 50% 15%;
+    /* Dark purple text */
 
-    --card: 0 0% 3%;
-    --card-foreground: 0 0% 100%;
+    --card: 0 0% 100%;
+    /* White cards */
+    --card-foreground: 250 50% 15%;
 
-    --popover: 0 0% 3%;
-    --popover-foreground: 0 0% 100%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 250 50% 15%;
 
-    --primary: 263.4 70% 50.4%;
-    /* Indigo/Purple base */
-    --primary-foreground: 210 40% 98%;
+    --primary: 263 70% 50%;
+    /* Indigo/Purple */
+    --primary-foreground: 0 0% 100%;
 
-    --secondary: 42 56% 93%;
-    /* #FAF3E1 - Luxury Cream Accent */
-    --secondary-foreground: 0 0% 1.2%;
+    --secondary: 250 60% 25%;
+    /* Deep purple for dark sections */
+    --secondary-foreground: 0 0% 100%;
 
-    --muted: 215 16% 47%;
-    /* #a1a1aa - Muted Gray */
-    --muted-foreground: 215 16% 65%;
+    --muted: 250 30% 85%;
+    --muted-foreground: 250 20% 40%;
 
-    --accent: 210 100% 92%;
-    /* Neon Blue intent */
-    --accent-foreground: 222.2 47.4% 11.2%;
+    --accent: 263 70% 60%;
+    /* Bright purple accent */
+    --accent-foreground: 0 0% 100%;
 
     --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive-foreground: 0 0% 100%;
 
-    --border: 0 0% 20%;
-    --input: 0 0% 20%;
-    --ring: 263.4 70% 50.4%;
+    --border: 250 30% 85%;
+    --input: 250 30% 85%;
+    --ring: 263 70% 50%;
 
     --radius: 0.75rem;
   }
@@ -66,41 +66,66 @@
 
   /* Liquid Glass Navigation */
   .liquid-nav {
-    @apply bg-[#030303]/70 backdrop-blur-xl border-b border-white/5;
+    @apply bg-white/80 backdrop-blur-xl border-b border-purple-200/50;
   }
 
-  /* Aurora Background Effect */
+  /* Dark Purple Section Background */
+  .dark-section {
+    background: linear-gradient(135deg, #2d1b69 0%, #1a0f3d 100%);
+    color: white;
+  }
+
+  /* Aurora Background Effect - Light Version */
   .aurora-bg {
-    background-color: #030303;
+    background-color: #f8f7fc;
     background-image:
-      radial-gradient(at 0% 0%, rgba(99, 102, 241, 0.15) 0px, transparent 50%),
-      radial-gradient(at 100% 0%, rgba(168, 85, 247, 0.15) 0px, transparent 50%),
-      radial-gradient(at 100% 100%, rgba(6, 182, 212, 0.1) 0px, transparent 50%);
+      radial-gradient(at 0% 0%, rgba(99, 102, 241, 0.08) 0px, transparent 50%),
+      radial-gradient(at 100% 0%, rgba(168, 85, 247, 0.08) 0px, transparent 50%),
+      radial-gradient(at 100% 100%, rgba(139, 92, 246, 0.06) 0px, transparent 50%);
     background-attachment: fixed;
   }
 
   /* Buttons */
   .btn-primary {
-    @apply inline-flex items-center justify-center rounded-full bg-gradient-to-r from-indigo-500 to-purple-600 px-8 py-4 text-base font-semibold text-white transition-all duration-300 hover:scale-105;
-    box-shadow: 0 0 15px rgba(99, 102, 241, 0.5);
+    @apply inline-flex items-center justify-center rounded-full bg-gradient-to-r from-indigo-600 to-purple-600 px-8 py-4 text-base font-semibold text-white transition-all duration-300 hover:scale-105;
+    box-shadow: 0 4px 20px rgba(99, 102, 241, 0.3);
   }
 
   .btn-primary:hover {
-    box-shadow: 0 0 25px rgba(168, 85, 247, 0.6);
+    box-shadow: 0 6px 30px rgba(168, 85, 247, 0.4);
+  }
+
+  .btn-secondary {
+    @apply inline-flex items-center justify-center rounded-full bg-white border-2 border-purple-600 px-8 py-4 text-base font-semibold text-purple-600 transition-all duration-300 hover:bg-purple-50;
   }
 
   /* Cards */
   .glass-card {
-    @apply bg-white/5 backdrop-blur-md border border-white/10 rounded-2xl shadow-lg transition-all duration-300 hover:-translate-y-2 hover:bg-white/10;
+    @apply bg-white backdrop-blur-md border border-purple-100 rounded-2xl shadow-lg transition-all duration-300 hover:-translate-y-2 hover:shadow-xl;
   }
 
   .glass-card:hover {
-    box-shadow: 0 10px 40px -10px rgba(135, 195, 255, 0.2);
+    box-shadow: 0 20px 50px -10px rgba(139, 92, 246, 0.25);
+    border-color: rgba(139, 92, 246, 0.3);
+  }
+
+  /* Dark Cards (for dark sections) */
+  .dark-card {
+    @apply bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl shadow-lg transition-all duration-300 hover:-translate-y-2;
+  }
+
+  .dark-card:hover {
+    @apply bg-white/15 border-white/30;
+    box-shadow: 0 20px 50px -10px rgba(255, 255, 255, 0.1);
   }
 }
 
 @layer utilities {
   .text-glow {
-    text-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+    text-shadow: 0 0 20px rgba(139, 92, 246, 0.3);
+  }
+
+  .text-glow-white {
+    text-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
   }
 }
