@@ -22,16 +22,16 @@ export default function Home() {
                 <Products />
             </section>
 
-            <section id="features">
-                <Features />
-            </section>
-
             <section id="robotics">
                 <Robotics />
             </section>
 
             <section id="courses">
                 <Courses />
+            </section>
+
+            <section id="features">
+                <Features />
             </section>
 
             <section id="contact">
