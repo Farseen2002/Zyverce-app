@@ -12,6 +12,7 @@ import {
     Twitter as TwitterIcon,
     Linkedin as LinkedinIcon,
     Instagram as InstagramIcon,
+    Send,
 } from 'lucide-react';
 import { Button, ButtonProps } from '@/components/ui/button';
 
@@ -20,6 +21,26 @@ const APP_PHONE = '+1 234 567 890';
 const APP_PHONE_2 = '+1 987 654 321';
 
 export function Contact() {
+    const [formData, setFormData] = React.useState({
+        fullName: '',
+        email: '',
+        subject: '',
+        message: ''
+    });
+
+    const handleSubmit = (e: React.FormEvent) => {
+        e.preventDefault();
+        // Handle form submission logic here
+        console.log('Form submitted:', formData);
+    };
+
+    const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+        setFormData({
+            ...formData,
+            [e.target.name]: e.target.value
+        });
+    };
+
     const socialLinks = [
         {
             icon: GithubIcon,
@@ -58,6 +79,84 @@ export function Contact() {
                     <p className="text-muted-foreground mb-5 text-base">
                         Get in touch with the team at ZYVERCE.
                     </p>
+                </div>
+                <BorderSeparator />
+                {/* Messaging Section */}
+                <div className="px-4 md:px-6 py-12">
+                    <div className="max-w-2xl mx-auto">
+                        <h2 className="text-2xl font-bold mb-6">Send us a message</h2>
+                        <form onSubmit={handleSubmit} className="space-y-6">
+                            <div className="grid md:grid-cols-2 gap-4">
+                                <div>
+                                    <label htmlFor="fullName" className="block text-sm font-medium mb-2">
+                                        Full Name
+                                    </label>
+                                    <input
+                                        type="text"
+                                        id="fullName"
+                                        name="fullName"
+                                        value={formData.fullName}
+                                        onChange={handleChange}
+                                        placeholder="John Doe"
+                                        className="w-full px-4 py-3 rounded-lg border border-border bg-background focus:outline-none focus:ring-2 focus:ring-primary"
+                                        required
+                                    />
+                                </div>
+                                <div>
+                                    <label htmlFor="email" className="block text-sm font-medium mb-2">
+                                        Email Address
+                                    </label>
+                                    <input
+                                        type="email"
+                                        id="email"
+                                        name="email"
+                                        value={formData.email}
+                                        onChange={handleChange}
+                                        placeholder="john@example.com"
+                                        className="w-full px-4 py-3 rounded-lg border border-border bg-background focus:outline-none focus:ring-2 focus:ring-primary"
+                                        required
+                                    />
+                                </div>
+                            </div>
+                            <div>
+                                <label htmlFor="subject" className="block text-sm font-medium mb-2">
+                                    Subject
+                                </label>
+                                <input
+                                    type="text"
+                                    id="subject"
+                                    name="subject"
+                                    value={formData.subject}
+                                    onChange={handleChange}
+                                    placeholder="How can we help?"
+                                    className="w-full px-4 py-3 rounded-lg border border-border bg-background focus:outline-none focus:ring-2 focus:ring-primary"
+                                    required
+                                />
+                            </div>
+                            <div>
+                                <label htmlFor="message" className="block text-sm font-medium mb-2">
+                                    Message
+                                </label>
+                                <textarea
+                                    id="message"
+                                    name="message"
+                                    value={formData.message}
+                                    onChange={handleChange}
+                                    placeholder="Tell us about your project..."
+                                    rows={6}
+                                    className="w-full px-4 py-3 rounded-lg border border-border bg-background focus:outline-none focus:ring-2 focus:ring-primary resize-none"
+                                    required
+                                />
+                            </div>
+                            <Button
+                                type="submit"
+                                className="w-full md:w-auto px-8 py-3 bg-primary text-primary-foreground hover:bg-primary/90 rounded-lg font-medium flex items-center justify-center gap-2"
+                            >
+                                Send Message
+                                <Send className="size-4" />
+                            </Button>
+                        </form>
+                    </div>
                 </div>
                 <BorderSeparator />
                 <div className="grid md:grid-cols-3">
