@@ -43,10 +43,10 @@ const HolographicCard = () => {
         >
             <div className="holo-content text-center">
                 <h3 className="component-title" style={{ fontWeight: 700, fontSize: '1.25rem', color: '#ffffff', letterSpacing: '-0.025em' }}>
-                    COHORT 360
+                    Holographic Card
                 </h3>
                 <p style={{ color: '#9ca3af', fontSize: '0.875rem' }}>
-                    Coming Soon
+                    Move your mouse over me!
                 </p>
             </div>
             <div className="holo-glow"></div>
