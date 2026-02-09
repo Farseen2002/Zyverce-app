@@ -1,5 +1,6 @@
+"use client";
+
 import { motion } from 'framer-motion';
-import AnimatedSection from './AnimatedSection';
 import { Clock, Star, ArrowRight } from 'lucide-react';
 
 const courses = [
@@ -50,11 +51,18 @@ const getLevelColor = (level: string) => {
     }
 };
 
-const CoursesSection = () => {
+export const Courses = () => {
     return (
-        <section id="courses" className="py-24 relative">
+        <section id="courses" className="py-24 relative bg-white">
             <div className="container mx-auto px-6">
-                <AnimatedSection className="text-center mb-16">
+                {/* Header */}
+                <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.6 }}
+                    className="text-center mb-16"
+                >
                     <span className="text-primary text-sm font-medium tracking-wider uppercase">
                         Learn With Us
                     </span>
@@ -64,14 +72,21 @@ const CoursesSection = () => {
                     <p className="text-muted-foreground max-w-2xl mx-auto">
                         Start your learning journey today with our expert-led courses
                     </p>
-                </AnimatedSection>
+                </motion.div>
 
+                {/* Course Grid */}
                 <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
                     {courses.map((course, index) => (
-                        <AnimatedSection key={course.title} delay={index * 0.1}>
+                        <motion.div
+                            key={course.title}
+                            initial={{ opacity: 0, y: 20 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true }}
+                            transition={{ duration: 0.6, delay: index * 0.1 }}
+                        >
                             <motion.div
                                 whileHover={{ y: -8 }}
-                                className="group rounded-2xl overflow-hidden border border-border bg-card"
+                                className="group rounded-2xl overflow-hidden border border-border bg-card shadow-lg"
                             >
                                 {/* Image */}
                                 <div className="relative h-44 overflow-hidden">
@@ -116,19 +131,24 @@ const CoursesSection = () => {
                                     </div>
                                 </div>
                             </motion.div>
-                        </AnimatedSection>
+                        </motion.div>
                     ))}
                 </div>
 
-                <AnimatedSection delay={0.4} className="text-center mt-12">
-                    <a href="#" className="btn-outline inline-flex items-center gap-2">
+                {/* View All Button */}
+                <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.6, delay: 0.4 }}
+                    className="text-center mt-12"
+                >
+                    <a href="#" className="btn-secondary inline-flex items-center gap-2">
                         View All Courses
                         <ArrowRight className="w-4 h-4" />
                     </a>
-                </AnimatedSection>
+                </motion.div>
             </div>
         </section>
     );
 };
-
-export default CoursesSection;
