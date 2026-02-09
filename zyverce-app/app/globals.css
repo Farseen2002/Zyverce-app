@@ -124,6 +124,47 @@
     @apply bg-white/15 border-white/30;
     box-shadow: 0 20px 50px -10px rgba(255, 255, 255, 0.1);
   }
+
+  /* Holographic Card Effect */
+  .holographic-card {
+    @apply relative w-80 h-96 rounded-3xl bg-white/5 border border-white/10 overflow-hidden transition-all duration-200 ease-out;
+    transform-style: preserve-3d;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+  }
+
+  .holographic-card::before {
+    content: "";
+    @apply absolute inset-0 opacity-0 transition-opacity duration-500;
+    background: radial-gradient(800px circle at var(--x) var(--y),
+        rgba(255, 255, 255, 0.06),
+        transparent 40%);
+    z-index: 1;
+    pointer-events: none;
+  }
+
+  .holographic-card:hover::before {
+    @apply opacity-100;
+  }
+
+  .holo-glow {
+    @apply absolute inset-0 pointer-events-none;
+    background: radial-gradient(600px circle at var(--x) var(--y),
+        rgba(139, 92, 246, 0.25),
+        transparent 40%);
+    z-index: 2;
+    opacity: 0;
+    transition: opacity 0.5s;
+    mix-blend-mode: hard-light;
+  }
+
+  .holographic-card:hover .holo-glow {
+    opacity: 1;
+  }
+
+  .holo-content {
+    @apply relative z-10 h-full flex flex-col items-center justify-center p-6;
+    transform: translateZ(50px);
+  }
 }
 
 @layer utilities {
