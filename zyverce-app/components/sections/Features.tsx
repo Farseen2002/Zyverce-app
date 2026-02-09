@@ -107,7 +107,7 @@ export function Features({
                     >
                         Why Choose ZYVERCE
                     </span>
-                    <h2 className="text-4xl md:text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-white to-gray-400 mt-4 mb-6">
+                    <h2 className="text-4xl md:text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-neutral-900 to-neutral-500 mt-4 mb-6">
                         Empowering Education with Technology
                     </h2>
                 </div>
@@ -134,10 +134,10 @@ export function Features({
                                     {/* Feature Content */}
                                     <div
                                         className={`
-                    flex lg:flex-row flex-col items-start space-x-4 p-3 max-w-sm md:max-w-sm lg:max-w-2xl transition-all duration-300
+                    flex lg:flex-row flex-col items-start space-x-4 p-3 max-w-sm md:max-w-sm lg:max-w-2xl transition-all duration-300 rounded-xl
                     ${isActive
-                                                ? " glass-panel border-l-4 border-indigo-500 "
-                                                : " opacity-60 hover:opacity-100 "
+                                                ? " bg-neutral-100 border-l-4 border-indigo-500 "
+                                                : " opacity-60 hover:opacity-100 hover:bg-neutral-50 "
                                             }
                   `}
                                     >
@@ -146,8 +146,8 @@ export function Features({
                                             className={`
                       p-3  hidden md:block rounded-full transition-all duration-300
                       ${isActive
-                                                    ? `bg-indigo-500/20 text-indigo-400`
-                                                    : `bg-white/5 text-gray-400`
+                                                    ? `bg-indigo-100 text-indigo-600`
+                                                    : `bg-neutral-100 text-neutral-400`
                                                 }
                     `}
                                         >
@@ -160,8 +160,8 @@ export function Features({
                                                 className={`
                         text-lg md:mt-4 lg:mt-0 font-semibold mb-2 transition-colors duration-300
                         ${isActive
-                                                        ? "text-white"
-                                                        : "text-gray-400"
+                                                        ? "text-neutral-900"
+                                                        : "text-neutral-500"
                                                     }
                       `}
                                             >
@@ -171,8 +171,8 @@ export function Features({
                                                 className={`
                         transition-colors duration-300 text-sm
                         ${isActive
-                                                        ? "text-gray-300"
-                                                        : "text-gray-500"
+                                                        ? "text-neutral-600"
+                                                        : "text-neutral-400"
                                                     }
                       `}
                                             >
