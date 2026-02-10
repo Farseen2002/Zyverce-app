@@ -1,4 +1,5 @@
 import { HeroSection } from "@/components/sections/Hero";
+import { OurMission } from "@/components/sections/OurMission";
 import { Services } from "@/components/sections/Services";
 import { Products } from "@/components/sections/Products";
 import { Features } from "@/components/sections/Features";
@@ -12,6 +13,10 @@ export default function Home() {
         <div className="flex flex-col bg-white dark:bg-neutral-950">
             <section id="home">
                 <HeroSection />
+            </section>
+
+            <section id="mission">
+                <OurMission />
             </section>
 
             <section id="services">
