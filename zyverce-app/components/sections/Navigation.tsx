@@ -1,6 +1,6 @@
 "use client";
 import React, { useState } from "react";
-import { motion } from "framer-motion";
+import { motion, useScroll, useMotionValueEvent } from "framer-motion";
 import Link from "next/link";
 import Image from "next/image";
 
@@ -122,9 +122,38 @@ export const HoveredLink = ({ children, ...rest }: any) => {
 
 export function Navbar({ className }: { className?: string }) {
     const [active, setActive] = useState<string | null>(null);
+    const { scrollY } = useScroll();
+    const [visible, setVisible] = useState(true);
+
+    useMotionValueEvent(scrollY, "change", (current: number) => {
+        // Check if current is not undefined and is a number
+        if (typeof current === "number") {
+            const previous = scrollY.getPrevious() || 0;
+            const direction = current - previous;
+
+            if (scrollY.get() < 50) {
+                setVisible(true);
+            } else {
+                if (direction < 0) {
+                    setVisible(true);
+                } else {
+                    setVisible(false);
+                }
+            }
+        }
+    });
+
     return (
-        <div
-            className={`fixed top-10 inset-x-0 max-w-2xl mx-auto z-50 ${className}`}
+        <motion.div
+            initial={{ opacity: 1, y: -100 }}
+            animate={{
+                y: visible ? 0 : -100,
+                opacity: visible ? 1 : 0,
+            }}
+            transition={{
+                duration: 0.2,
+            }}
+            className={`fixed top-10 inset-x-0 max-w-2xl mx-auto z-[5000] ${className}`}
         >
             <Menu setActive={setActive}>
                 <Link href="#home">
@@ -170,6 +199,6 @@ export function Navbar({ className }: { className?: string }) {
                     <MenuItem setActive={setActive} active={active} item="Contact" />
                 </Link>
             </Menu>
-        </div>
+        </motion.div>
     );
 }
