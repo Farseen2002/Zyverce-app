@@ -11,7 +11,7 @@ const floatingIcons = [
     { src: '/img-4.png', bottom: '15%', right: '5%', delay: 3 },
     { src: '/img-5.png', top: '30%', left: '15%', delay: 4 },
     { src: '/img-6.png', top: '25%', right: '20%', delay: 0.5 },
-    { src: '/img-7.png', bottom: '35%', left: '8%', delay: 1.5 },
+    { src: '/img-7.png', top: '35%', left: '5%', delay: 1.5 }, // Moved up and left to avoid img-3
     { src: '/img-8.png', bottom: '40%', right: '12%', delay: 2.5 },
     { src: '/img-9.png', top: '8%', left: '25%', delay: 3.5 },
     { src: '/img-10.png', top: '12%', right: '30%', delay: 0.8 },
@@ -19,8 +19,8 @@ const floatingIcons = [
     { src: '/img-12.png', top: '45%', right: '3%', delay: 2.8 },
     { src: '/img-13.png', bottom: '5%', left: '30%', delay: 3.8 },
     { src: '/img-14.png', bottom: '8%', right: '25%', delay: 1.2 },
-    // Replaced Z-logo with img-15.png, centered and larger as requested
-    { src: '/img-15.png', top: '50%', left: '50%', width: '150px', opacity: 0.15, delay: 4, isCenter: true }
+    // Replaced Z-logo with img-15.png, centered and much larger as requested
+    { src: '/img-15.png', top: '50%', left: '50%', width: '800px', opacity: 0.15, delay: 4, isCenter: true }
 ];
 
 export const HeroSection = () => {
@@ -70,7 +70,7 @@ export const HeroSection = () => {
                             left: icon.left,
                             right: icon.right,
                             bottom: icon.bottom,
-                            width: icon.width || '90px', // Increased default size from 60px to 90px
+                            width: icon.width || '150px', // Significantly increased default size from 110px to 150px
                             height: 'auto',
                             transform: icon.isCenter ? 'translate(-50%, -50%)' : 'none', // Center alignment for the central image
                             mixBlendMode: 'multiply',
