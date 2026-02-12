@@ -71,7 +71,9 @@ export const HeroSection = () => {
                             bottom: icon.bottom,
                             width: icon.width || '60px', // Default size
                             height: 'auto',
-                            filter: 'invert(1) brightness(2)', // Make them look like white sketches on dark bg
+                            opacity: icon.opacity || 0.6, // Default opacity, slightly higher than before
+                            mixBlendMode: 'multiply', // Ensure they blend well with the background
+                            // Removed invert filter as the background is light and icons are black
                         }}
                         className="pointer-events-none"
                     />
