@@ -19,7 +19,8 @@ const floatingIcons = [
     { src: '/img-12.png', top: '45%', right: '3%', delay: 2.8 },
     { src: '/img-13.png', bottom: '5%', left: '30%', delay: 3.8 },
     { src: '/img-14.png', bottom: '8%', right: '25%', delay: 1.2 },
-    { src: '/z-logo.png', top: '5%', right: '5%', width: '40px', opacity: 0.5, delay: 4 } // Adding logo just in case
+    // Replaced Z-logo with img-15.png, centered and larger as requested
+    { src: '/img-15.png', top: '50%', left: '50%', width: '150px', opacity: 0.15, delay: 4, isCenter: true }
 ];
 
 export const HeroSection = () => {
@@ -54,7 +55,7 @@ export const HeroSection = () => {
                         alt=""
                         initial={{ opacity: 0, y: 20 }}
                         animate={{
-                            opacity: 0.3, // Keep them subtle
+                            opacity: icon.opacity || 0.6,
                             y: [0, -20, 0],
                             rotate: [0, 5, -5, 0]
                         }}
@@ -69,11 +70,10 @@ export const HeroSection = () => {
                             left: icon.left,
                             right: icon.right,
                             bottom: icon.bottom,
-                            width: icon.width || '60px', // Default size
+                            width: icon.width || '90px', // Increased default size from 60px to 90px
                             height: 'auto',
-                            opacity: icon.opacity || 0.6, // Default opacity, slightly higher than before
-                            mixBlendMode: 'multiply', // Ensure they blend well with the background
-                            // Removed invert filter as the background is light and icons are black
+                            transform: icon.isCenter ? 'translate(-50%, -50%)' : 'none', // Center alignment for the central image
+                            mixBlendMode: 'multiply',
                         }}
                         className="pointer-events-none"
                     />
