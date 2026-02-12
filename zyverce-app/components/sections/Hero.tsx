@@ -4,6 +4,24 @@ import TypeWriter from './TypeWriter';
 import { ArrowRight, Sparkles } from 'lucide-react';
 import NeuralBackground from '../ui/neural-background';
 
+const floatingIcons = [
+    { src: '/img-1.png', top: '10%', left: '5%', delay: 0 },
+    { src: '/img-2.png', top: '15%', right: '10%', delay: 1 },
+    { src: '/img-3.png', bottom: '20%', left: '10%', delay: 2 },
+    { src: '/img-4.png', bottom: '15%', right: '5%', delay: 3 },
+    { src: '/img-5.png', top: '30%', left: '15%', delay: 4 },
+    { src: '/img-6.png', top: '25%', right: '20%', delay: 0.5 },
+    { src: '/img-7.png', bottom: '35%', left: '8%', delay: 1.5 },
+    { src: '/img-8.png', bottom: '40%', right: '12%', delay: 2.5 },
+    { src: '/img-9.png', top: '8%', left: '25%', delay: 3.5 },
+    { src: '/img-10.png', top: '12%', right: '30%', delay: 0.8 },
+    { src: '/img-11.png', top: '50%', left: '2%', delay: 1.8 },
+    { src: '/img-12.png', top: '45%', right: '3%', delay: 2.8 },
+    { src: '/img-13.png', bottom: '5%', left: '30%', delay: 3.8 },
+    { src: '/img-14.png', bottom: '8%', right: '25%', delay: 1.2 },
+    { src: '/z-logo.png', top: '5%', right: '5%', width: '40px', opacity: 0.5, delay: 4 } // Adding logo just in case
+];
+
 export const HeroSection = () => {
     const typingTexts = [
         'LMS & AMS Systems',
@@ -26,6 +44,39 @@ export const HeroSection = () => {
                 speed={0.5}
                 className="opacity-60" // Slight transparency to blend
             />
+
+            {/* Floating Icons */}
+            <div className="absolute inset-0 overflow-hidden pointer-events-none z-0">
+                {floatingIcons.map((icon, index) => (
+                    <motion.img
+                        key={index}
+                        src={icon.src}
+                        alt=""
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{
+                            opacity: 0.3, // Keep them subtle
+                            y: [0, -20, 0],
+                            rotate: [0, 5, -5, 0]
+                        }}
+                        transition={{
+                            opacity: { duration: 1, delay: icon.delay },
+                            y: { duration: 5, repeat: Infinity, ease: "easeInOut", delay: icon.delay },
+                            rotate: { duration: 10, repeat: Infinity, ease: "easeInOut", delay: icon.delay }
+                        }}
+                        style={{
+                            position: 'absolute',
+                            top: icon.top,
+                            left: icon.left,
+                            right: icon.right,
+                            bottom: icon.bottom,
+                            width: icon.width || '60px', // Default size
+                            height: 'auto',
+                            filter: 'invert(1) brightness(2)', // Make them look like white sketches on dark bg
+                        }}
+                        className="pointer-events-none"
+                    />
+                ))}
+            </div>
 
             <div className="container mx-auto px-6 relative z-10">
                 <div className="max-w-4xl mx-auto text-center">
