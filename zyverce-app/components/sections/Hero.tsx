@@ -11,7 +11,8 @@ const floatingIcons = [
     { src: '/img-4.png', bottom: '15%', right: '5%', delay: 3 },
     { src: '/img-5.png', top: '30%', left: '15%', delay: 4 },
     { src: '/img-6.png', top: '25%', right: '20%', delay: 0.5 },
-    { src: '/img-7.png', bottom: '5%', left: '10%', delay: 1.5 }, // Moved to bottom left and slightly larger
+    // CHANGED: img-7 moved further to the bottom left
+    { src: '/img-7.png', bottom: '2%', left: '2%', delay: 1.5 }, 
     { src: '/img-8.png', bottom: '40%', right: '12%', delay: 2.5 },
     { src: '/img-9.png', top: '8%', left: '25%', delay: 3.5 },
     { src: '/img-10.png', top: '12%', right: '30%', delay: 0.8 },
@@ -19,10 +20,9 @@ const floatingIcons = [
     { src: '/img-12.png', top: '45%', right: '3%', delay: 2.8 },
     { src: '/img-13.png', bottom: '5%', left: '30%', delay: 3.8 },
     { src: '/img-14.png', bottom: '8%', right: '25%', delay: 1.2 },
-    // Moved ZYVERCE text to the right side as requested
-    { src: '/img-15.png', top: '45%', right: '5%', width: '700px', opacity: 0.12, delay: 4 }
+    // CHANGED: img-15 moved higher up and slightly more towards the center
+    { src: '/img-15.png', top: '35%', right: '10%', width: '700px', opacity: 0.12, delay: 4 }
 ];
-
 export const HeroSection = () => {
     const typingTexts = [
         'LMS & AMS Systems',
@@ -141,4 +141,5 @@ export const HeroSection = () => {
         </section>
     );
 };
+
 
