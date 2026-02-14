@@ -12,7 +12,7 @@ const floatingIcons = [
     { src: '/img-5.png', top: '30%', left: '15%', delay: 4 },
     { src: '/img-6.png', top: '25%', right: '20%', delay: 0.5 },
     // CHANGED: img-7 moved further to the bottom left
-    { src: '/img-7.png', bottom: '2%', left: '2%', delay: 1.5 }, 
+    { src: '/img-7.png', bottom: '2%', left: '2%', delay: 1.5 },
     { src: '/img-8.png', bottom: '40%', right: '12%', delay: 2.5 },
     { src: '/img-9.png', top: '8%', left: '25%', delay: 3.5 },
     { src: '/img-10.png', top: '12%', right: '30%', delay: 0.8 },
@@ -53,17 +53,9 @@ export const HeroSection = () => {
                         key={index}
                         src={icon.src}
                         alt=""
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{
-                            opacity: icon.opacity || 0.6,
-                            y: [0, -20, 0],
-                            rotate: [0, 5, -5, 0]
-                        }}
-                        transition={{
-                            opacity: { duration: 1, delay: icon.delay },
-                            y: { duration: 5, repeat: Infinity, ease: "easeInOut", delay: icon.delay },
-                            rotate: { duration: 10, repeat: Infinity, ease: "easeInOut", delay: icon.delay }
-                        }}
+                        initial={{ opacity: icon.opacity || 0.6 }}
+                        animate={{ opacity: icon.opacity || 0.6 }}
+                        transition={{ duration: 0.5 }}
                         style={{
                             position: 'absolute',
                             top: icon.top,
@@ -141,5 +133,3 @@ export const HeroSection = () => {
         </section>
     );
 };
-
-
