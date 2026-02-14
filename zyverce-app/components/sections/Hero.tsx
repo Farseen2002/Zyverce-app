@@ -21,7 +21,7 @@ const floatingIcons = [
     { src: '/img-13.png', bottom: '5%', left: '30%' },
     { src: '/img-14.png', bottom: '8%', right: '25%' },
     // Moved up and toward center per instructions (Zyverce text)
-    { src: '/img-15.png', top: '35%', right: '50%', width: '700px', opacity: 0.12 }
+    { src: '/img-15.png', top: '35%', right: '25%', width: '700px', opacity: 0.12 }
 ];
 
 export const HeroSection = () => {
@@ -133,4 +133,5 @@ export const HeroSection = () => {
         </section>
     );
 };
+
 
